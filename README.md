@@ -73,12 +73,30 @@ qemu-system-riscv64 \
     -append "root=LABEL=rootfs console=ttyS0" \
     -nographic
 ```
+Let see what everything does :
+-	cpu rv64: Emulate RISC-V 64-bit.
+-	m 1G: 1 GB of RAM. Tweak as needed.
+-	netdev user,id=net,hostfwd=tcp::2222-:22: Make port 22 accessible as localhost:2222. This lets us forward SSH connections.
+-	bios /usr/share/qemu/opensbi-riscv64-generic-fw_dynamic.elf: If needed, replace with the location of your OpenBSI. But make sure it’s the same configuration.
+-	kernel ./u-boot-qemu/uboot.elf: Replace with the path to your U-Boot image.
+-	nographic: Run in serial TTY mode. This should give you decently-accurate terminal emulation.
+
 Log in with :
 ```
+Admin
 login: root
 password: root
+
+User
+login: debian
+password: debian
 ```
 
 You’re logged in on Debian running on a RISC-V64 Architecture !
 
 To boot it in the future, start a terminal, type `cd /riscv64/debian-rv64/dqib_riscv64-virt/` and then type the qemu command just above.
+
+## SSH access
+
+Replacing -nographic with -daemonize makes qemu run in the background. You can log in using either username/password :
+ssh debian@localhost -p 2222
