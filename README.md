@@ -99,4 +99,7 @@ To boot it in the future, start a terminal, type `cd /riscv64/debian-rv64/dqib_r
 ## SSH access
 
 Replacing -nographic with -daemonize makes qemu run in the background. You can log in using either username/password :
+```
+ssh root@localhost -p 2222
 ssh debian@localhost -p 2222
+```
