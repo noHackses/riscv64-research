@@ -58,7 +58,6 @@ If something ever breaks, simply delete `overlay.qcow2` and run the command agai
 
 Then, everything should be ready. You can boot the virtual machine :
 ```
-in /home/riscv64/debian-rv64/dqib_riscv64-virt/
 qemu-system-riscv64 \
     -machine virt \
     -cpu rv64 \
@@ -74,10 +73,12 @@ qemu-system-riscv64 \
     -append "root=LABEL=rootfs console=ttyS0" \
     -nographic
 ```
-Login with : 
+Log in with :
 ```
 login: root
 password: root
 ```
 
 You’re logged in on Debian running on a RISC-V64 Architecture !
+
+To boot it in the future, start a terminal, type `cd /riscv64/debian-rv64/dqib_riscv64-virt/` and then type the qemu command just above.
