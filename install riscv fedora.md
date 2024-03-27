@@ -8,7 +8,7 @@ We will use Fedora Workstation. I installed it on Virtualbox
 
 ## Installation
 
-We need to install the following packets :
+We need to install the following packages :
 -  Sphinx (Python)
 -  Ninja
 -  Autoconf
