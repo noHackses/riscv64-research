@@ -103,3 +103,19 @@ Replacing -nographic with -daemonize makes qemu run in the background. You can l
 ssh root@localhost -p 2222
 ssh debian@localhost -p 2222
 ```
+
+## Installing k3s on the system
+
+In summary, as we are using a pre-compiled image, the following commands should get you up and running with K3s directly :
+```
+# Download
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.aa
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ab
+wget https://github.com/CARV-ICS-FORTH/k3s/releases/download/20230721/k3s-riscv64.gz.ac
+cat k3s-riscv64.gz.* | gunzip > /usr/local/bin/k3s
+chmod +x /usr/local/bin/k3s
+
+# Install
+curl -sfL https://get.k3s.io > k3s-install.sh
+INSTALL_K3S_SKIP_DOWNLOAD="true" bash -x k3s-install.sh
+```
