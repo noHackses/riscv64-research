@@ -107,13 +107,13 @@ ssh debian@localhost -p 2222
 ## Installing k3s on the system
 
 To begin the installation of k3s on Debian running on RISC-V64, we need to install some packages as out Debian installation is relatively barebones. Be aware that I used the root account of the debian installation, if you are using the user account you will need to run in with sudo.
-'''
+```
 apt-get update
 apt-get upgrade #not necessary but recommended
 
 apt-get install wget
 apt-get install curl
-'''
+```
 
 In summary, as we are using a pre-compiled image, the following commands should get you up and running with K3s directly :
 ```
