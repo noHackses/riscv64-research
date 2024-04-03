@@ -127,4 +127,7 @@ chmod +x /usr/local/bin/k3s
 # Install
 curl -sfL https://get.k3s.io > k3s-install.sh
 INSTALL_K3S_SKIP_DOWNLOAD="true" bash -x k3s-install.sh
+
+# Example
+kubectl apply -f https://raw.githubusercontent.com/CARV-ICS-FORTH/kubernetes-riscv64/main/examples/hello-kubernetes.yaml
 ```
