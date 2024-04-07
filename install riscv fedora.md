@@ -4,7 +4,7 @@ This guide details how to setup a fedora distribution that runs on RISC-V.
 
 ## Prerequisites
 
-We will use Fedora Workstation. I installed it on Virtualbox
+We will use Fedora Workstation. I installed it on Virtualbox (make sure to allocate enough VRAM in the settings to avoid visual glitches).
 
 ## Installation
 
@@ -20,16 +20,18 @@ We need to install the following packages :
 -  pixman
 
 ```
-sudo dnf install python3-sphinx
-sudo dnf install python3-sphinx_rtd_theme
-sudo dnf install ninja-build
+sudo dnf update
+
+sudo dnf -y install python3-sphinx
+sudo dnf -y install python3-sphinx_rtd_theme
+sudo dnf -y install ninja-build
 sudo dnf -y install autoconf
-sudo dnf install automake
+sudo dnf -y install automake
 sudo dnf -y install libtool
 sudo dnf -y install pkg-config
 sudo dnf -y install zlib-devel
-sudo dnf install glib2-devel
-sudo dnf install pixman-devel
+sudo dnf -y install glib2-devel
+sudo dnf -y install pixman-devel
 ```
 
 Downloading QEMU
@@ -59,3 +61,8 @@ Starting up RISC-V Fedora with QEMU
 ```
 ./build/qemu-system-riscv64 -nographic -machine virt -smp 4 -m 2G -kernel Fedora-Minimal-Rawhide-*-fw_payload-uboot-qemu-virt-smode.elf -bios none -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-device,rng=rng0 -device virtio-blk-device,drive=hd0 -drive file=Fedora-Minimal-Rawhide-20200108.n.0-sda.raw,format=raw,id=hd0 -netdev tap,id=usernet,ifname=tap0,script=no,downscript=no -device virtio-net-device,netdev=usernet
 ```
+
+Now, Fedora should have booted. To log in, use "riscv" with password "fedora_rocks!"
+
+
+
