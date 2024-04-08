@@ -49,7 +49,7 @@ This is not required but let’s make a backup image so that, in case something 
 
 ```
 sudo apt-install qemu-utils
-qemu-img create -o backing_file=image.qcow2,backing_fmt=qcow2 -f qcow2 overlay.qcow2¨
+qemu-img create -o backing_file=image.qcow2,backing_fmt=qcow2 -f qcow2 overlay.qcow2
 ```
 
 If something ever breaks, simply delete `overlay.qcow2` and run the command again.
